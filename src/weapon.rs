@@ -24,6 +24,6 @@ impl WeaponBehavior for AxeBehavior {
 }
 impl WeaponBehavior for BowAndArrowBehavior {
     fn fight(&self) {
-        println!("AxeBehavior");
+        println!("BowAndArrowBehavior");
     }
 }
