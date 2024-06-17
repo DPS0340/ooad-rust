@@ -28,12 +28,12 @@ mod tests {
     use weapon::Weapon;
 
     #[test]
-    fn check_character() {
-        let king = character::Character {
+    fn check_character_weapons() {
+        let mut king = character::Character {
             weapon: Weapon { name: "Sword" },
         };
-        assert_stdout_eq!(king.use_weapon(), "Sword!");
+        assert_stdout_eq!(king.use_weapon(), "Sword!\n");
         king.weapon = Weapon { name: "Axe" };
-        assert_stdout_eq!(king.use_weapon(), "Axe!");
+        assert_stdout_eq!(king.use_weapon(), "Axe!\n");
     }
 }
