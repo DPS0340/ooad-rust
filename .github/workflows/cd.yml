@@ -1,0 +1,13 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: run cargo test
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - run: cargo test --all-features
