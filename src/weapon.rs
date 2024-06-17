@@ -1,29 +1,15 @@
-pub trait WeaponBehavior {
-    fn fight(&self) -> ();
+pub trait WeaponBehavior: Sized {
+    fn fight(&self) -> ()
+    where
+        Self: Sized;
 }
 
-struct SwordBehavior {}
-struct KnifeBehavior {}
-struct AxeBehavior {}
-struct BowAndArrowBehavior {}
+pub struct Weapon {
+    pub name: &'static str,
+}
 
-impl WeaponBehavior for SwordBehavior {
+impl WeaponBehavior for Weapon {
     fn fight(&self) {
-        println!("Sword!");
-    }
-}
-impl WeaponBehavior for KnifeBehavior {
-    fn fight(&self) {
-        println!("KnifeBehavior");
-    }
-}
-impl WeaponBehavior for AxeBehavior {
-    fn fight(&self) {
-        println!("AxeBehavior");
-    }
-}
-impl WeaponBehavior for BowAndArrowBehavior {
-    fn fight(&self) {
-        println!("BowAndArrowBehavior");
+        println!("{}!", self.name);
     }
 }
